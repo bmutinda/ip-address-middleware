@@ -83,7 +83,7 @@ class IpAddress implements MiddlewareInterface
      * Set the "$attributeName" attribute to the client's IP address as determined from
      * the proxy header (X-Forwarded-For or from $_SERVER['REMOTE_ADDR']
      */
-    public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
+    public function process(ServerRequestInterface $request, RequestHandlerInterface $handler)
     {
         $ipAddress = $this->determineClientIpAddress($request);
         $request = $request->withAttribute($this->attributeName, $ipAddress);
